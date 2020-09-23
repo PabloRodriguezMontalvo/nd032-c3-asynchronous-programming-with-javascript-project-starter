@@ -2,44 +2,49 @@
   "cars": [
     {
       "id": 1,
-      "driver_name": "Racer 1",
+      "driver_name": "Tom Doretto",
       "top_speed": 650,
       "acceleration": 8,
-      "handling": 7
+      "handling": 7,
+      "car": "../images/car1.png"
     },
     {
       "id": 2,
-      "driver_name": "Racer 2",
+      "driver_name": "Brand O'Connel",
       "top_speed": 600,
       "acceleration": 9,
-      "handling": 9
+      "handling": 9,
+      "car": "../images/car2.png"
     },
     {
       "id": 3,
-      "driver_name": "Racer 3",
+      "driver_name": "Seoul Han",
       "top_speed": 500,
       "acceleration": 10,
-      "handling": 6
+      "handling": 6,
+      "car": "../images/car3.png"
     },
     {
       "id": 4,
-      "driver_name": "Racer 4",
+      "driver_name": "Letizia Ortiz",
       "top_speed": 550,
       "acceleration": 7,
-      "handling": 8
+      "handling": 8,
+      "car": "../images/car4.png"
     },
     {
       "id": 5,
-      "driver_name": "Racer 5",
+      "driver_name": "Diana Prince",
       "top_speed": 700,
       "acceleration": 5,
-      "handling": 4
+      "handling": 4,
+      "car": "../images/car5.png"
     }
   ],
   "tracks": [
     {
       "id": 1,
-      "name": "Track 1",
+      "name": "Brazil",
       "segments": [
         87,
         47,
@@ -246,7 +251,7 @@
     },
     {
       "id": 2,
-      "name": "Track 2",
+      "name": "London",
       "segments": [
         37,
         86,
@@ -403,7 +408,7 @@
     },
     {
       "id": 3,
-      "name": "Track 3",
+      "name": "Barcelona",
       "segments": [
         15,
         10,
@@ -585,7 +590,7 @@
     },
     {
       "id": 4,
-      "name": "Track 4",
+      "name": "Tokio",
       "segments": [
         9,
         55,
@@ -743,7 +748,7 @@
     },
     {
       "id": 5,
-      "name": "Track 5",
+      "name": "Los Angeles",
       "segments": [
         61,
         5,

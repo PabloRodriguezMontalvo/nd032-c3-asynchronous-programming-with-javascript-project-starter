@@ -2,7 +2,9 @@
 
 /* -------------------  MOBILE  --------------------- */
 header {
-  background-image: url('https://via.placeholder.com/1150');
+  background-image: url('../images/carrera.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% ;
 }
 
 main#two-columns {
