@@ -79,8 +79,11 @@ p {
   text-align: center;
   text-decoration: none;
 }
-.trophy{
-  background-image:url('../images/trophy.png');
+#leaderBoard > h3:first-child{
+
+  background:url('../images/trophy.png') bottom left repeat-x;
+  background-size: 64px 64px;
+
 
 }
 main {

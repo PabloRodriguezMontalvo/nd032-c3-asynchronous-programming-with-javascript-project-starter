@@ -155,7 +155,6 @@ async function handleCreateRace() {
   } catch (err) {
     console.log(err);
   }
-  renderAt("#race", renderRaceStartView());
 }
 function assignCars() {
   let coches = 0;
@@ -423,7 +422,11 @@ function raceProgress(positions) {
 
   const completetion = (positions[0].segment / 201) * 100;
   var otroscorredores = racers;
+
   const results = positions.map((p) => {
+    // if (positions[0].id == p.id) {
+    //   trophy = "<div class=`trophy`></div>"
+    // }
     if (p.id == store.player_id) {
       return `
 			<tr>
@@ -435,18 +438,12 @@ function raceProgress(positions) {
     `;
     }
     let imagecar = otroscorredores.find((e) => e.id == p.id);
-    let trophy = "";
-    if (positions[0].id == p.id) {
-      trophy = ""
-      trophy = "<div class=`trophy`></div>"
-    }
+
     if (imagecar) {
-
-
       return `
 			<tr>
 				<td>
-          <h3>${count++} - ${p.driver_name} <img width="15%" src="${imagecar.car}"> ${trophy}</h3>
+          <h3>${count++} - ${p.driver_name} <img width="15%" src="${imagecar.car}"> </h3>
 				</td>
 			</tr>
     `;
