@@ -1,6 +1,7 @@
 // PROVIDED CODE BELOW (LINES 1 - 80) DO NOT REMOVE
 
 
+
 // The store will hold all information needed globally
 var store = {
   track_id: undefined,
@@ -434,13 +435,18 @@ function raceProgress(positions) {
     `;
     }
     let imagecar = otroscorredores.find((e) => e.id == p.id);
+    let trophy = "";
+    if (positions[0].id == p.id) {
+      trophy = ""
+      trophy = "<div class=`trophy`></div>"
+    }
     if (imagecar) {
 
 
       return `
 			<tr>
 				<td>
-          <h3>${count++} - ${p.driver_name} <img width="15%" src="${imagecar.car}"></h3>
+          <h3>${count++} - ${p.driver_name} <img width="15%" src="${imagecar.car}"> ${trophy}</h3>
 				</td>
 			</tr>
     `;
@@ -532,7 +538,8 @@ function getRace(id) {
     dataType: "json",
   })
     .then((res) => res.json())
-    .catch((err) => console.log("Problem with getRace request::", err));
+
+    .catch((err) => { store.race_id = 0; console.log("Problem with getRace request::", err) });
 }
 
 function startRace(id) {
@@ -543,7 +550,8 @@ function startRace(id) {
     ...defaultFetchOpts(),
   })
     .then((res) => res.json())
-    .catch((err) => console.log("Problem with getRace request::", err));
+    .catch((err) =>
+      console.log("Problem with getRace request::", err));
 }
 
 function accelerate(id) {

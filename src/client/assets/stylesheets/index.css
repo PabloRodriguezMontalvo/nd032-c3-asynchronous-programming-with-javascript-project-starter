@@ -79,7 +79,10 @@ p {
   text-align: center;
   text-decoration: none;
 }
+.trophy{
+  background-image:url('../images/trophy.png');
 
+}
 main {
   flex: 1;
 }
