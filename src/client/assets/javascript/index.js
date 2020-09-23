@@ -1,7 +1,4 @@
 // PROVIDED CODE BELOW (LINES 1 - 80) DO NOT REMOVE
-
-
-
 // The store will hold all information needed globally
 var store = {
   track_id: undefined,
@@ -90,6 +87,9 @@ function setupClickHandlers() {
       if (target.matches(".racer")) {
         handleSelectPodRacer(target);
       }
+
+      // car model form field
+
       if (target.matches(".model")) {
         handleSelectCar(target);
       }
@@ -171,11 +171,6 @@ function assignCars() {
           coches++;
         }
 
-
-
-
-
-
       }
     }
     resolve();
@@ -183,8 +178,6 @@ function assignCars() {
     console.log("Problem with assignCars request::", err);
   });
 }
-
-
 
 
 function runRace(raceID) {
@@ -197,15 +190,14 @@ function runRace(raceID) {
         if (res.status != "finished") {
           renderAt("#leaderBoard", raceProgress(res.positions));
         } else {
-          clearInterval(raceInterval); // to stop the interval from repeating
-          resolve(res); // resolve the promise
+          clearInterval(raceInterval); // clearing interval
+          resolve(res); // resolving promise
         }
       });
     }, raceInterval);
   }).catch((err) => {
     console.log("Problem with runRace request::", err);
   });
-  // remember to add error handling for the Promise
 }
 
 async function runCountdown() {
@@ -244,8 +236,8 @@ function handleSelectPodRacer(target) {
 
   // add class selected to current target
   target.classList.add("selected");
-  store.player_id = target.id;
   // TODO - save the selected racer to the store
+  store.player_id = target.id;
 }
 function handleSelectCar(target) {
   console.log("selected a car", target.id);
@@ -258,9 +250,10 @@ function handleSelectCar(target) {
 
   // add class selected to current target
   target.classList.add("selected");
+  // TODO - save the selected car to the store
+
   store.car_model = target.id;
 
-  // TODO - save the selected racer to the store
 }
 function handleSelectTrack(target) {
   console.log("selected a track", target.id);
@@ -273,17 +266,17 @@ function handleSelectTrack(target) {
 
   // add class selected to current target
   target.classList.add("selected");
+  // TODO - save the selected track id to the store
 
   store.track_id = target.id;
 
-  // TODO - save the selected track id to the store
 }
 
 function handleAccelerate() {
   // TODO - Invoke the API call to accelerate
 
   accelerate(store.race_id)
-    .then(() => console.log("accelerate button clicked"))
+    .then(() => console.log("Engine goes BRRRRR!"))
     .catch(() => console.log("error! engine broken :("));
 }
 
@@ -333,11 +326,11 @@ function renderRacerCard(racer) {
 
   return `
     <li class="card racer" id="${id}">
-      <h4>${driver_name}</h4>
+      <h4>Name: ${driver_name}</h4>
 
-			<p>${top_speed}</p>
-			<p>${acceleration}</p>
-      <p>${handling}</p>
+			<p>Top Speed: ${top_speed}</p>
+			<p>Acceleration: ${acceleration}</p>
+      <p>Handling: ${handling}</p>
 
 		</li>
 	`;
@@ -526,7 +519,6 @@ function createRace(player_id, track_id) {
     .catch((err) => console.log("Problem with createRace request::", err));
 }
 // GET request to `${SERVER}/api/races/${id}`
-// The api is broken, so i must to handle to do in another way
 function getRace(id) {
   let race_id = parseInt(id);
   return fetch(`${SERVER}/api/races/${race_id}`, {
@@ -548,7 +540,7 @@ function startRace(id) {
   })
     .then((res) => res.json())
     .catch((err) =>
-      console.log("Problem with getRace request::", err));
+      console.log("Problem with startRace request::", err));
 }
 
 function accelerate(id) {
