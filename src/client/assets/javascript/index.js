@@ -1,14 +1,14 @@
 // PROVIDED CODE BELOW (LINES 1 - 80) DO NOT REMOVE
 // The store will hold all information needed globally
-var store = {
+letflet store = {
   track_id: undefined,
   player_id: undefined,
   race_id: undefined,
   car_model: undefined,
 };
-var OtherCarsInTheRace = [];
-var racers;
-var carsModel = {
+let OtherCarsInTheRace = [];
+let racers;
+let carsModel = {
   images: [
     {
       id: 1,
@@ -548,5 +548,7 @@ function accelerate(id) {
   return fetch(`${SERVER}/api/races/${race_id}/accelerate`, {
     ...defaultFetchOpts(),
     method: "POST",
-  });
+  })
+    .catch((err) =>
+      console.log("Problem with startRace request::", err));;
 }
